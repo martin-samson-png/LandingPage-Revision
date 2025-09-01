@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "@faker-js/faker": "https://esm.run/@faker-js/faker"
+        }
+      }
+    </script>
+    <script type="module" src="./script/review.js" defer></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
@@ -11,8 +20,55 @@
       <p>Spécialiste en tech depuis 1970 en Vendée</p>
     </header>
     <main>
-      <section id="avis"></section>
-      <section id="prix"></section>
+      <section id="review">
+        <h2>Avis Clients</h2>
+        <div><h3>Partagez votre avis :</h3></div>
+        <form action="">
+          <div>
+            <label for="review-name">Nom</label
+            ><input type="text" placeholder="Ex: Mikaka" />
+          </div>
+          <div>
+            <label for="review-note">Note</label>
+            <select name="review-name" id="">
+              <option value="nothing">-</option>
+              <option value="5">5★</option>
+              <option value="4">4★</option>
+              <option value="3">3★</option>
+              <option value="2">2★</option>
+              <option value="1">1★</option>
+            </select>
+          </div>
+          <div>
+            <label for="review-comment">Commentaire</label
+            ><textarea
+              rows="5"
+              name="review-comment"
+              id=""
+              placeholder="Dites-nous tous ..."
+            ></textarea>
+          </div>
+          <button>Publiez l'avis</button>
+        </form>
+        <div><h3>Nos Avis Clients :</h3></div>
+        <ul id="review-list"></ul>
+        <template id="review-template">
+          <li class="review-list-template">
+            <article>
+              <div class="review-header">
+                <h4 class="review-author"></h4>
+                <span class="review-rate"></span>
+                <p class="review-date"></p>
+              </div>
+              <p class="review-comment"></p>
+              <div class="review-action">
+                <button class="delete-btn">Supprimer</button>
+              </div>
+            </article>
+          </li>
+        </template>
+      </section>
+      <section id="price"></section>
       <section id="faq"></section>
     </main>
     <footer id="contact"></footer>
