@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/price.css" />
+    <script src="./script/price.js" defer></script>
     <title>Landing Page</title>
   </head>
   <body>
@@ -10,11 +12,71 @@
       <h1>Vendée Drone</h1>
       <p>Spécialiste en tech depuis 1970 en Vendée</p>
     </header>
+
     <main>
       <section id="avis"></section>
-      <section id="prix"></section>
+      <section id="price">
+        <div class="price-container">
+          <div class="card">
+            <h2>Ton Drone sur mesure !</h2>
+            <p class="lead">
+              Choisissez vos options et voyez le prix s’ajuster en temps réel.
+            </p>
+          </div>
+
+          <div class="grid">
+            <section class="card">
+              <h3 id="config-title" class="sr-only">
+                Configuration du produit
+              </h3>
+
+              <div class="field">
+                <span class="label">Couleur</span>
+                <div
+                  id="colorOptions"
+                  class="option-row"
+                  role="group"
+                  aria-label="Choix de la couleur"
+                ></div>
+              </div>
+
+              <div class="field">
+                <label for="versionSelect" class="label"
+                  >Capacité / Version</label
+                >
+                <select
+                  id="versionSelect"
+                  class="select"
+                  aria-describedby="versionHelp"
+                ></select>
+                <small id="versionHelp" class="muted"
+                  >Le prix de base dépend de la version.</small
+                >
+              </div>
+
+              <div class="field">
+                <span class="label">Options supplémentaires</span>
+                <div id="extras" class="grid-sub"></div>
+              </div>
+            </section>
+
+            <aside class="card price-box" aria-live="polite" aria-atomic="true">
+              <div>
+                <div class="label">Prix total</div>
+                <div id="total" class="total">—</div>
+              </div>
+              <div>
+                <div class="label">Détail</div>
+                <pre id="breakdown" class="breakdown">—</pre>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
       <section id="faq"></section>
     </main>
+
     <footer id="contact"></footer>
   </body>
 </html>
