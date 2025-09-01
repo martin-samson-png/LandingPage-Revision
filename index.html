@@ -9,7 +9,7 @@
       }
     </script>
     <script type="module" src="./script/review.js" defer></script>
-
+    <link rel="stylesheet" href="./style/review.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
@@ -22,16 +22,48 @@
     <main>
       <section id="review">
         <h2>Avis Clients</h2>
-        <div><h3>Partagez votre avis :</h3></div>
-        <form action="">
+        <div>
+          <div><h3>Partagez votre avis :</h3></div>
+          <form action="">
+            <div>
+              <label for="review-username">Nom</label
+              ><input
+                name="review-username"
+                type="text"
+                placeholder="Ex: Mikaka"
+                id="reviewUsername"
+              />
+              <span class="hidden-review">Un nom est requis</span>
+            </div>
+            <div>
+              <label for="review-note">Note</label>
+              <select name="review-note" id="reviewNote">
+                <option value="" disabled selected>Choissisez...</option>
+                <option value="5">5★</option>
+                <option value="4">4★</option>
+                <option value="3">3★</option>
+                <option value="2">2★</option>
+                <option value="1">1★</option>
+              </select>
+              <span class="hidden-review">Vous devez choisir un note.</span>
+            </div>
+            <div>
+              <label for="review-comment">Commentaire</label
+              ><textarea
+                rows="5"
+                name="review-comment"
+                id="reviewComment"
+                placeholder="Dites-nous tous ..."
+              ></textarea>
+            </div>
+            <button id="addReview">Publiez l'avis</button>
+          </form>
+        </div>
+        <div>
           <div>
-            <label for="review-name">Nom</label
-            ><input type="text" placeholder="Ex: Mikaka" />
-          </div>
-          <div>
-            <label for="review-note">Note</label>
-            <select name="review-name" id="">
-              <option value="nothing">-</option>
+            <h3>Nos Avis Clients :</h3>
+            <select id="filterRate">
+              <option value="">Filtrez...</option>
               <option value="5">5★</option>
               <option value="4">4★</option>
               <option value="3">3★</option>
@@ -39,34 +71,26 @@
               <option value="1">1★</option>
             </select>
           </div>
-          <div>
-            <label for="review-comment">Commentaire</label
-            ><textarea
-              rows="5"
-              name="review-comment"
-              id=""
-              placeholder="Dites-nous tous ..."
-            ></textarea>
-          </div>
-          <button>Publiez l'avis</button>
-        </form>
-        <div><h3>Nos Avis Clients :</h3></div>
-        <ul id="review-list"></ul>
-        <template id="review-template">
-          <li class="review-list-template">
-            <article>
-              <div class="review-header">
-                <h4 class="review-author"></h4>
-                <span class="review-rate"></span>
-                <p class="review-date"></p>
-              </div>
-              <p class="review-comment"></p>
-              <div class="review-action">
-                <button class="delete-btn">Supprimer</button>
-              </div>
-            </article>
-          </li>
-        </template>
+          <ul id="reviewList"></ul>
+          <template id="reviewTemplate">
+            <li class="review-list-template">
+              <article>
+                <div class="review-header">
+                  <img alt="" class="avatar-author" />
+                  <h4 class="review-author"></h4>
+                  <span class="review-rate"></span>
+                  <p class="review-date"></p>
+                </div>
+                <p class="review-comment"></p>
+                <div class="review-action">
+                  <button class="delete-btn-review" id="deleteBtnReview">
+                    Supprimer
+                  </button>
+                </div>
+              </article>
+            </li>
+          </template>
+        </div>
       </section>
       <section id="price"></section>
       <section id="faq"></section>
