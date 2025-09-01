@@ -12,7 +12,11 @@
     <link rel="stylesheet" href="./style/review.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script/contact.js" defer></script>
+    <link rel="stylesheet" href="./style/contact.css" />
     <title>Landing Page</title>
+    <script src="script/faq.js"></script>
+    <link rel="stylesheet" href="style/faq.css">
   </head>
   <body>
     <header>
@@ -95,8 +99,59 @@
         </div>
       </section>
       <section id="price"></section>
-      <section id="faq"></section>
+      <section id="faq">
+        <h2>FAQ - Question fréquentes</h2>
+        <input type="text" id="faq-search" placeholder="Rechercher une question...">
+        <div id="faq-list"></div>
+        <template id="faq-template">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-text"></span>
+              <span class="faq-icon">▶</span>
+            </div>
+            <div class="faq-answer"></div>
+          </div>
+        </template>
+      </section>
     </main>
-    <footer id="contact"></footer>
+
+    <footer>
+      <button id="contactBtn">Contactez-nous</button>
+    </footer>
+    <!--Contact Modal-->
+    <!--Contact Modal-->
+    <aside id="contact-modal" class="modal" aria-hidden="true">
+      <div
+        class="modal-wrapper"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-title"
+      >
+        <h2 id="contact-title">Contactez-nous</h2>
+
+        <form id="contactForm" novalidate>
+          <label for="name">Nom *</label>
+          <input id="name" name="name" type="text" required />
+          <div id="name-error" class="error-msg" aria-live="polite"></div>
+
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required />
+          <div id="email-error" class="error-msg" aria-live="polite"></div>
+
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+          <div id="message-error" class="error-msg" aria-live="polite"></div>
+          <div class="formButton">
+          <button id="sendBtn" type="submit" class="sendButtonModal">
+            Envoyer
+          </button>
+        </form>
+
+        <button id="close-modal" type="button" class="closeButtonModal">
+          Fermer
+        </button>
+        </div>
+      </div>
+    </aside>
   </body>
 </html>
