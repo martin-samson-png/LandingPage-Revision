@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
+    <link rel="stylesheet" href="style/faq.css">
   </head>
   <body>
     <header>
@@ -13,8 +14,22 @@
     <main>
       <section id="avis"></section>
       <section id="prix"></section>
-      <section id="faq"></section>
+      <section id="faq">
+        <h2>FAQ - Question fréquentes</h2>
+        <input type="text" id="faq-search" placeholder="Rechercher une question...">
+        <div id="faq-list"></div>
+        <template id="faq-template">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-text"></span>
+              <span class="faq-icon">▶</span>
+            </div>
+            <div class="faq-answer"></div>
+          </div>
+        </template>
+      </section>
     </main>
+    <script src="script/faq.js"></script>
     <footer id="contact"></footer>
   </body>
 </html>
