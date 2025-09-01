@@ -5,3 +5,7 @@
 .alert-review {
   color: red;
 }
+
+img {
+  max-width: 200px;
+}

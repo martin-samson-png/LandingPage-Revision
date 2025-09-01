@@ -1,74 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f9;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #233664;
+  padding: 20px;
 }
 
 #faq {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 #faq-search {
-    display: block;
-    margin: 0 auto 20px;
-    padding: 10px;
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 #faq-search:hover {
-  border-color: rgba(69, 111, 247, 0.30);
+  border-color: rgba(69, 111, 247, 0.3);
 }
 
 .faq-item {
-    background: #fff;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: 0.3s;
+  background: #171229;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .faq-item:hover {
-    background: #f9f9f9;
-    box-shadow: 0 2px 6px rgba(69, 111, 247, 0.30);
+  background: #171229;
+  box-shadow: 0 2px 6px rgba(69, 111, 247, 0.3);
 }
 
 .faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
 }
 
 .faq-icon {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .faq-icon.open {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.4s ease;
-    margin-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  margin-top: 10px;
 }
 
 .faq-answer.open {
-    max-height: 500px;
-    opacity: 1;
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-text {
+  color: white;
 }
