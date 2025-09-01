@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "@faker-js/faker": "https://esm.run/@faker-js/faker"
+        }
+      }
+    </script>
+    <script type="module" src="./script/review.js" defer></script>
+    <link rel="stylesheet" href="./style/review.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script/contact.js" defer></script>
+    <link rel="stylesheet" href="./style/contact.css" />
     <link rel="stylesheet" href="./style/price.css" />
     <script src="./script/price.js" defer></script>
     <title>Landing Page</title>
@@ -14,6 +25,78 @@
     </header>
 
     <main>
+      <section id="review">
+        <h2>Avis Clients</h2>
+        <div>
+          <div><h3>Partagez votre avis :</h3></div>
+          <form action="">
+            <div>
+              <label for="review-username">Nom</label
+              ><input
+                name="review-username"
+                type="text"
+                placeholder="Ex: Mikaka"
+                id="reviewUsername"
+              />
+              <span class="hidden-review">Un nom est requis</span>
+            </div>
+            <div>
+              <label for="review-note">Note</label>
+              <select name="review-note" id="reviewNote">
+                <option value="" disabled selected>Choissisez...</option>
+                <option value="5">5★</option>
+                <option value="4">4★</option>
+                <option value="3">3★</option>
+                <option value="2">2★</option>
+                <option value="1">1★</option>
+              </select>
+              <span class="hidden-review">Vous devez choisir un note.</span>
+            </div>
+            <div>
+              <label for="review-comment">Commentaire</label
+              ><textarea
+                rows="5"
+                name="review-comment"
+                id="reviewComment"
+                placeholder="Dites-nous tous ..."
+              ></textarea>
+            </div>
+            <button id="addReview">Publiez l'avis</button>
+          </form>
+        </div>
+        <div>
+          <div>
+            <h3>Nos Avis Clients :</h3>
+            <select id="filterRate">
+              <option value="">Filtrez...</option>
+              <option value="5">5★</option>
+              <option value="4">4★</option>
+              <option value="3">3★</option>
+              <option value="2">2★</option>
+              <option value="1">1★</option>
+            </select>
+          </div>
+          <ul id="reviewList"></ul>
+          <template id="reviewTemplate">
+            <li class="review-list-template">
+              <article>
+                <div class="review-header">
+                  <img alt="" class="avatar-author" />
+                  <h4 class="review-author"></h4>
+                  <span class="review-rate"></span>
+                  <p class="review-date"></p>
+                </div>
+                <p class="review-comment"></p>
+                <div class="review-action">
+                  <button class="delete-btn-review" id="deleteBtnReview">
+                    Supprimer
+                  </button>
+                </div>
+              </article>
+            </li>
+          </template>
+        </div>
+      </section>
       <section id="avis"></section>
       <section id="price">
         <div class="price-container">
@@ -76,6 +159,45 @@
 
       <section id="faq"></section>
     </main>
+
+    <footer>
+      <button id="contactBtn">Contactez-nous</button>
+    </footer>
+    <!--Contact Modal-->
+    <!--Contact Modal-->
+    <aside id="contact-modal" class="modal" aria-hidden="true">
+      <div
+        class="modal-wrapper"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-title"
+      >
+        <h2 id="contact-title">Contactez-nous</h2>
+
+        <form id="contactForm" novalidate>
+          <label for="name">Nom *</label>
+          <input id="name" name="name" type="text" required />
+          <div id="name-error" class="error-msg" aria-live="polite"></div>
+
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required />
+          <div id="email-error" class="error-msg" aria-live="polite"></div>
+
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+          <div id="message-error" class="error-msg" aria-live="polite"></div>
+          <div class="formButton">
+          <button id="sendBtn" type="submit" class="sendButtonModal">
+            Envoyer
+          </button>
+        </form>
+
+        <button id="close-modal" type="button" class="closeButtonModal">
+          Fermer
+        </button>
+        </div>
+      </div>
+    </aside>
 
     <footer id="contact"></footer>
   </body>
