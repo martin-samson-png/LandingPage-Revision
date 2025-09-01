@@ -1,0 +1,134 @@
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #6366f1;
+  --danger: #ef4444;
+  --ok: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  padding: 24px;
+}
+
+.button {
+  appearance: none;
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.button:hover {
+  filter: brightness(1.05);
+}
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.button-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+input,
+textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #0b1220;
+  color: var(--text);
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.error-msg {
+  min-height: 1em;
+  color: var(--danger);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+.input-error {
+  border-color: var(--danger);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 23, 0.6);
+  padding: 24px;
+}
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-wrapper {
+  width: min(520px, 92vw);
+  background: var(--card);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes pop {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.modal[aria-hidden="false"] .modal-wrapper {
+  animation: pop 0.2s ease-out;
+}
+
+.confirmation h2 {
+  margin-top: 0;
+}
+
+.error-msg {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  min-height: 1em;
+  margin-top: 4px;
+}
+
+.input-error {
+  border-color: #d32f2f !important;
+  outline: none;
+}
