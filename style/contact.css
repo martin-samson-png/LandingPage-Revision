@@ -14,16 +14,26 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  background-color: var(--primary);
+}
 .container {
   padding: 24px;
 }
 
-.button {
+.formButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sendButtonModal {
   appearance: none;
   border: 0;
   background: var(--primary);
@@ -33,16 +43,20 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
-.button:hover {
+.sendButtonModal:hover {
   filter: brightness(1.05);
 }
-.button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-.button-ghost {
+.closeButtonModal {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.closeButtonModal:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 label {
@@ -88,6 +102,7 @@ textarea {
   align-items: center;
   justify-content: center;
   background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(6px);
   padding: 24px;
 }
 .modal[aria-hidden="false"] {
@@ -129,6 +144,6 @@ textarea {
 }
 
 .input-error {
-  border-color: #d32f2f !important;
+  border-color: #d32f2f;
   outline: none;
 }

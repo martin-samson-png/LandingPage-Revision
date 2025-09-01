@@ -1,9 +1,11 @@
 const contactButton = document.getElementById("contactBtn");
 const contactModal = document.getElementById("contact-modal");
-const closeModalBtn = document.getElementById("close-modal");
+const closeModalBtn = contactModal.querySelector(".closeButtonModal");
 const modalWrapper = contactModal.querySelector(".modal-wrapper");
 
 const form = document.getElementById("contactForm");
+const sendBtn = form.querySelector(".sendButtonModal");
+
 const nameEl = document.getElementById("name");
 const emailEl = document.getElementById("email");
 const messageEl = document.getElementById("message");
@@ -34,7 +36,7 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
 });
 
-// Validation
+//  Validation
 function clearErrors() {
   errName.textContent = "";
   errEmail.textContent = "";
@@ -96,6 +98,7 @@ function showConfirmationModal() {
 
   const close = document.createElement("button");
   close.type = "button";
+  close.classList.add("closeButtonModal");
   close.textContent = "Fermer";
 
   confirmationModal.appendChild(title);
