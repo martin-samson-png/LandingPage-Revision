@@ -8,10 +8,6 @@ users.forEach((review) => {
   const reviewClone = reviewTemplate.content.cloneNode(true);
   const li = reviewClone.querySelector(".review-list-template");
   const avatar = li.querySelector(".avatar-author");
-  if (review.avatar) {
-    avatar.src = review.avatar;
-    avatar.alt = `${review.username} - avatar`;
-  }
   li.querySelector(".review-author").textContent = review.username;
   li.querySelector(".review-rate").textContent = review.rate + "★";
 
@@ -54,11 +50,6 @@ addReview.addEventListener("click", (e) => {
   users.forEach((review) => {
     const reviewClone = reviewTemplate.content.cloneNode(true);
     const li = reviewClone.querySelector(".review-list-template");
-    const avatar = li.querySelector(".avatar-author");
-    if (review.avatar) {
-      avatar.src = review.avatar;
-      avatar.alt = `${review.username} - avatar`;
-    }
     li.querySelector(".review-author").textContent = review.username;
     li.querySelector(".review-rate").textContent = review.rate + "★";
 
@@ -70,49 +61,42 @@ addReview.addEventListener("click", (e) => {
 
     reviewList.appendChild(li);
   });
+});
 
-  //Supprimer un avis
+//Supprimer un avis
 
-  const deleteBtn = document.getElementById("deleteBtnReview");
+const deleteBtn = document.getElementById("deleteBtnReview");
 
-  deleteBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const closestLi = deleteBtn.closest(".review-list-template");
-    closestLi.remove();
-  });
+deleteBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const closestLi = deleteBtn.closest(".review-list-template");
+  closestLi.remove();
+});
 
-  //Trier par notes
+//Trier par notes
 
-  const filterValue = document.getElementById("filterRate");
+const filterValue = document.getElementById("filterRate");
 
-  filterValue.addEventListener("change", (e) => {
-    e.preventDefault();
-    const selected = filterValue.value;
-    const value =
-      selected === ""
-        ? users
-        : users.filter((u) => u.rate === Number(selected));
+filterValue.addEventListener("change", (e) => {
+  e.preventDefault();
+  const selected = filterValue.value;
+  const value =
+    selected === "" ? users : users.filter((u) => u.rate === Number(selected));
 
-    reviewList.innerHTML = "";
+  reviewList.innerHTML = "";
 
-    value.forEach((review) => {
-      const reviewClone = reviewTemplate.content.cloneNode(true);
-      const li = reviewClone.querySelector(".review-list-template");
-      const avatar = li.querySelector(".avatar-author");
-      if (review.avatar) {
-        avatar.src = review.avatar;
-        avatar.alt = `${review.username} - avatar`;
-      }
-      li.querySelector(".review-author").textContent = review.username;
-      li.querySelector(".review-rate").textContent = review.rate + "★";
+  value.forEach((review) => {
+    const reviewClone = reviewTemplate.content.cloneNode(true);
+    const li = reviewClone.querySelector(".review-list-template");
+    li.querySelector(".review-author").textContent = review.username;
+    li.querySelector(".review-rate").textContent = review.rate + "★";
 
-      li.querySelector(".review-date").textContent = new Date(review.createdAt)
-        .toISOString()
-        .split("T")[0];
+    li.querySelector(".review-date").textContent = new Date(review.createdAt)
+      .toISOString()
+      .split("T")[0];
 
-      li.querySelector(".review-comment").textContent = review.comment;
+    li.querySelector(".review-comment").textContent = review.comment;
 
-      reviewList.appendChild(li);
-    });
+    reviewList.appendChild(li);
   });
 });
