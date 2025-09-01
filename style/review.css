@@ -5,3 +5,15 @@
 .alert-review {
   color: red;
 }
+
+form {
+  display: flex;
+}
+
+li {
+  border: black solid 2px;
+  border-radius: 10px;
+  list-style: none;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
