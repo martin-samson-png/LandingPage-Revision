@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="./style/price.css" />
     <script src="./script/price.js" defer></script>
     <title>Landing Page</title>
+    <script src="script/faq.js"></script>
+    <link rel="stylesheet" href="style/faq.css">
   </head>
   <body>
     <header>
@@ -157,7 +159,20 @@
         </div>
       </section>
 
-      <section id="faq"></section>
+      <section id="faq">
+        <h2>FAQ - Question fréquentes</h2>
+        <input type="text" id="faq-search" placeholder="Rechercher une question...">
+        <div id="faq-list"></div>
+        <template id="faq-template">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-text"></span>
+              <span class="faq-icon">▶</span>
+            </div>
+            <div class="faq-answer"></div>
+          </div>
+        </template>
+      </section>
     </main>
 
     <footer>
