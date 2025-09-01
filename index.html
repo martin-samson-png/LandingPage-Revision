@@ -102,6 +102,7 @@
       <button id="contactBtn">Contactez-nous</button>
     </footer>
     <!--Contact Modal-->
+    <!--Contact Modal-->
     <aside id="contact-modal" class="modal" aria-hidden="true">
       <div
         class="modal-wrapper"
@@ -123,13 +124,16 @@
           <label for="message">Message *</label>
           <textarea id="message" name="message" required></textarea>
           <div id="message-error" class="error-msg" aria-live="polite"></div>
-
-          <button id="sendBtn" type="submit" class="button">Envoyer</button>
+          <div class="formButton">
+          <button id="sendBtn" type="submit" class="sendButtonModal">
+            Envoyer
+          </button>
         </form>
 
-        <button id="close-modal" type="button" class="button button-ghost">
+        <button id="close-modal" type="button" class="closeButtonModal">
           Fermer
         </button>
+        </div>
       </div>
     </aside>
   </body>
